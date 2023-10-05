@@ -1,32 +1,31 @@
-# Prerequisites
-*.d
+#include <iostream>
+using namespace std;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+int main() {
 
-# Precompiled Headers
-*.gch
-*.pch
+  int i, n;
+  bool is_prime = true;
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+  cout << "Enter a positive integer: ";
+  cin >> n;
 
-# Fortran module files
-*.mod
-*.smod
+  // 0 and 1 are not prime numbers
+  if (n == 0 || n == 1) {
+    is_prime = false;
+  }
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+  // loop to check if n is prime
+  for (i = 2; i <= n/2; ++i) {
+    if (n % i == 0) {
+      is_prime = false;
+      break;
+    }
+  }
 
-# Executables
-*.exe
-*.out
-*.app
+  if (is_prime)
+    cout << n << " is a prime number";
+  else
+    cout << n << " is not a prime number";
+
+  return 0;
+}
